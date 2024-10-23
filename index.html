@@ -144,13 +144,13 @@
             headers: { 'Accept': 'application/json' }
         }).then(response => {
             if (response.ok) {
-                alert('Mensagem enviada com sucesso!');
+                alert(REGISTRO BEM SUCEDIDO');
                 this.reset(); // Limpa os campos do formulário após o envio
             } else {
-                alert('Erro ao enviar a mensagem. Tente novamente.');
+                alert('ERRO AO ENVIAR FORMULÁRIO');
             }
         }).catch(error => {
-            alert('Ocorreu um erro ao enviar. Verifique sua conexão.');
+            alert('ERRO AO ENVIAR FORMULÁRIO, VERIFIQUE SUA CONEXÃO');
         });
     });
 </script>
