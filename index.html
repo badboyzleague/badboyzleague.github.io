@@ -68,10 +68,18 @@
             width: 100%;
             z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* centraliza o conteúdo horizontalmente */
             align-items: center;
             padding: 10px 30px;
             min-height: 60px;
+        }
+
+        #header nav ul {
+            display: flex;
+            gap: 30px; /* espaçamento entre itens do menu */
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
         #header nav a {
@@ -80,6 +88,7 @@
             font-family: 'Bitcount Grid Double', sans-serif;
             font-weight: 700;
             letter-spacing: 0.05em;
+            text-decoration: none;
         }
 
         #header nav a:visited,
@@ -89,15 +98,8 @@
             color: white !important;
         }
 
-        #header h1 {
-            color: white;
-            text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
         body {
-            padding-top: 40px;
+            padding-top: 60px; /* mais espaço para barra fixa */
             margin: 0;
         }
     </style>
@@ -105,7 +107,8 @@
 <body class="is-preload">
 
     <header id="header">
-        <h1>BAD BOYZ LEAGUE VER. DEMO 5.0</h1>
+        <!-- h1 removido para apagar o texto -->
+
         <nav>
             <ul>
                 <li><a href="#intro"><strong>DOWNLOAD DEMO</strong></a></li>
