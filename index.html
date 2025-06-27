@@ -39,35 +39,24 @@
             margin-bottom: 20px;
         }
 
-        /* VIDEO COM "BANDEJA" ARREDONDADA ATRÁS */
+        /* Video com fundo de bolha */
         .video-wrapper {
-            background-image: url('images/fundo-bolha.png'); /* <- Sua imagem de fundo aqui */
+            background-image: url('images/fundo-bolha.png'); /* <- Substitua pela sua imagem */
             background-size: cover;
             background-position: center;
-            padding: 30px;
             border-radius: 40px;
-            display: inline-block;
-            margin-bottom: 20px;
+            padding: 20px;
+            width: fit-content;
+            margin: 0 auto 30px auto;
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
         }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background-color: #000;
+        .video-embed {
+            width: 720px;
+            height: 405px;
             border-radius: 20px;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
+            display: block;
+            border: none;
         }
 
         @media (max-width: 768px) {
@@ -76,8 +65,15 @@
                 max-width: none;
             }
 
+            .video-embed {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+
             .video-wrapper {
-                padding: 20px;
+                width: 90%;
+                padding: 10px;
                 border-radius: 20px;
             }
         }
@@ -191,11 +187,16 @@
                     <img id="logo" src="bbllogo.gif" alt="Logo">
                 </div>
 
-                <!-- Video com fundo de bolha -->
+                <!-- Video com fundo bolha -->
                 <div class="video-wrapper">
-                    <div class="video-container">
-                        <iframe width="720" height="400" src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
+                    <iframe class="video-embed"
+                        src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </header>
 
