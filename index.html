@@ -14,6 +14,11 @@
     </style>
 
     <style>
+        body {
+            padding-top: 0px;
+            margin: 0;
+        }
+
         .logo-wrapper {
             perspective: 1800px;
             perspective-origin: center;
@@ -34,32 +39,50 @@
             margin-bottom: 20px;
         }
 
+        /* VIDEO COM "BANDEJA" ARREDONDADA ATRÁS */
+        .video-wrapper {
+            background-image: url('images/fundo-bolha.png'); /* <- Sua imagem de fundo aqui */
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background-color: #000;
+            border-radius: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
         @media (max-width: 768px) {
             #logo {
                 width: 80%;
                 max-width: none;
             }
 
-            .video-container {
-                position: relative;
-                padding-bottom: 56.25%;
-                height: 0;
-                overflow: hidden;
-                max-width: 100%;
-                background-color: #000;
-                margin: 0 auto;
-            }
-
-            .video-container iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+            .video-wrapper {
+                padding: 20px;
+                border-radius: 20px;
             }
         }
 
-        /* Estilo da barra superior com vidro fosco */
+        /* Header estilo vidro fosco */
         #header {
             background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
@@ -89,28 +112,24 @@
             color: white !important;
         }
 
-         #footer {
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 30px;
-    position: relative;
-    z-index: 1000;
-}
+        #footer {
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 30px;
+            position: relative;
+            z-index: 1000;
+            color: white;
+        }
 
-    #footer .menu {
-        font-weight: bold;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        text-align: right;
-    }
-
-        body {
-            padding-top: 0px;
+        #footer .menu {
+            font-weight: bold;
+            list-style: none;
             margin: 0;
+            padding: 0;
+            text-align: right;
         }
 
         /* Imagem flutuante lateral esquerda */
@@ -123,39 +142,37 @@
             animation: floatLeftRight 5s ease-in-out infinite;
             pointer-events: none;
         }
-        
+
         .floating-image-right {
-    position: fixed;
-    right: 0;
-    bottom: -60px;
-    width: 480px;
-    z-index: 999;
-    animation: floatRightLeft 5s ease-in-out infinite;
-    pointer-events: none;
-}
+            position: fixed;
+            right: 0;
+            bottom: -60px;
+            width: 480px;
+            z-index: 999;
+            animation: floatRightLeft 5s ease-in-out infinite;
+            pointer-events: none;
+        }
 
         @keyframes floatRightLeft {
-    0% { transform: translateX(80px); }
-    50% { transform: translateX(60px); }
-    100% { transform: translateX(80px); }
-}
+            0% { transform: translateX(80px); }
+            50% { transform: translateX(60px); }
+            100% { transform: translateX(80px); }
+        }
 
         @keyframes floatLeftRight {
-    0% { transform: translateX(-20px); }
-    50% { transform: translateX(0px); }
-    100% { transform: translateX(-20px); }
-}
-
+            0% { transform: translateX(-20px); }
+            50% { transform: translateX(0px); }
+            100% { transform: translateX(-20px); }
+        }
     </style>
 </head>
 <body class="is-preload">
 
     <!-- Imagem flutuante -->
     <img src="images/joebg.png" alt="Personagem" class="floating-image">
-     <!-- <img src="images/lilibg.png" alt="Personagem 2" class="floating-image-right"> -->
+    <!-- <img src="images/lilibg.png" alt="Personagem 2" class="floating-image-right"> -->
 
     <header id="header">
-        <!-- Título removido conforme pedido anterior -->
         <nav>
             <ul>
                 <li><a href="#intro"><strong>DOWNLOAD DEMO</strong></a></li>
@@ -174,31 +191,31 @@
                     <img id="logo" src="bbllogo.gif" alt="Logo">
                 </div>
 
-                <div class="video-container" style="margin-bottom: 20px;">
-                    <iframe width="720" height="400" src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- Video com fundo de bolha -->
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe width="720" height="400" src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
             </header>
+
             <p>ACOMPANHE NOSSAS REDES</p>
             <ul class="icons">
-            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-            <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-            <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-        </ul>
-            
-            <footer>
-               <!-- <a href="#one" class="button style2 down">More</a> -->
-            </footer>
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+            </ul>
         </div>
     </section>
 
-    <footer id="footer" style="background-color: rgba(0,0,0,0.3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: white; display: flex; justify-content: flex-end; padding: 10px 30px;">
-    <ul class="menu" style="font-weight: bold; list-style: none; margin: 0; padding: 0; text-align: right;">
-        <li>&copy; NOVO OLIMPO AUDIOVISUAL 2025</li>
-    </ul>
-</footer>
+    <footer id="footer">
+        <ul class="menu">
+            <li>&copy; NOVO OLIMPO AUDIOVISUAL 2025</li>
+        </ul>
+    </footer>
 
     <!-- Scripts base -->
     <script src="assets/js/jquery.min.js"></script>
