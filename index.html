@@ -88,8 +88,6 @@
         </div>
     </section>
 
-    <!-- Outras seções omitidas para foco -->
-
     <footer id="footer">
         <ul class="icons">
             <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -114,14 +112,14 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- Script de rotação automática com velocidade dinâmica -->
+    <!-- Script de rotação automática com brilho dinâmico -->
     <script>
         const logo = document.getElementById('logo');
 
         let angle = 0;
         let direction = 1;
         const maxAngle = 35;
-        const speed = window.innerWidth <= 768 ? 0.50 : 0.25;  // muito rápido no mobile
+        const speed = window.innerWidth <= 768 ? 0.50 : 0.25;
 
         function animateLogo() {
             angle += speed * direction;
@@ -130,7 +128,12 @@
                 direction *= -1;
             }
 
+            // Brilho: de 1.3 no centro até 0.8 nas extremidades
+            const normalized = Math.abs(angle) / maxAngle;
+            const brightness = 1.3 - (0.5 * normalized);
+
             logo.style.transform = `rotateY(${angle}deg) rotateX(7deg)`;
+            logo.style.filter = `brightness(${brightness})`;
 
             requestAnimationFrame(animateLogo);
         }
