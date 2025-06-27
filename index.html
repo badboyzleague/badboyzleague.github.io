@@ -99,17 +99,18 @@
             position: fixed;
             left: 0;
             bottom: 0px;
-            width: 240px;
+            /* width: 240px; */
             z-index: 999;
-            animation: floatUpDown 5s ease-in-out infinite;
+            animation: floatLeftRight 5s ease-in-out infinite;
             pointer-events: none;
         }
 
-        @keyframes floatUpDown {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
-        }
+        @keyframes floatLeftRight {
+    0% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(-10px); }
+}
+
     </style>
 </head>
 <body class="is-preload">
