@@ -11,15 +11,19 @@
     <style>
         .logo-wrapper {
             perspective: 1000px;
+            perspective-origin: center;
             display: flex;
             justify-content: center;
             align-items: center;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
         }
 
         #logo {
-            transition: transform 0.1s linear;
             transform-style: preserve-3d;
+            backface-visibility: hidden;
             will-change: transform;
+            transition: transform 0.1s linear;
             width: 50%;
             max-width: 800px;
             margin-bottom: 20px;
@@ -79,7 +83,7 @@
         </div>
     </section>
 
-    <!-- Outras seções omitidas -->
+    <!-- Outras seções omitidas para foco -->
 
     <footer id="footer">
         <ul class="icons">
