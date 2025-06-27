@@ -11,7 +11,9 @@
     <!-- Fonte personalizada para o menu -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
+    </style>
 
+    <style>
         .logo-wrapper {
             perspective: 1800px;
             perspective-origin: center;
@@ -57,7 +59,7 @@
             }
         }
 
-        /* Barra fixa no topo */
+        /* Estilo da barra superior com vidro fosco */
         #header {
             background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
@@ -65,25 +67,11 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-
-            height: 60px; /* altura fixa */
-            padding: 0 30px;
-            box-sizing: border-box;
-        }
-
-        #header nav ul {
-            display: flex;
-            justify-content: center; /* centraliza os itens do menu */
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            align-items: center;
-            height: 100%; /* para alinhar verticalmente */
+            padding: 10px 30px;
+            min-height: 60px;
         }
 
         #header nav a {
@@ -92,10 +80,6 @@
             font-family: 'Bitcount Grid Double', sans-serif;
             font-weight: 700;
             letter-spacing: 0.05em;
-            text-decoration: none;
-            line-height: 60px; /* alinhamento vertical */
-            display: inline-block;
-            height: 100%;
         }
 
         #header nav a:visited,
@@ -105,7 +89,13 @@
             color: white !important;
         }
 
-        /* Espaço para compensar barra fixa */
+        #header h1 {
+            color: white;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
         body {
             padding-top: 0px;
             margin: 0;
@@ -115,8 +105,7 @@
 <body class="is-preload">
 
     <header id="header">
-        <!-- h1 removido -->
-
+        <h1>BAD BOYZ LEAGUE VER. DEMO 5.0</h1>
         <nav>
             <ul>
                 <li><a href="#intro"><strong>DOWNLOAD DEMO</strong></a></li>
@@ -189,8 +178,8 @@
             const normalized = Math.abs(angle) / maxAngle;
             const brightness = 1.3 - (0.5 * normalized);
 
-            logo.style.transform = rotateY(${angle}deg) rotateX(7deg);
-            logo.style.filter = brightness(${brightness});
+            logo.style.transform = `rotateY(${angle}deg) rotateX(7deg)`;
+            logo.style.filter = `brightness(${brightness})`;
 
             requestAnimationFrame(animateLogo);
         }
