@@ -70,8 +70,15 @@
         }
 
         #header nav a {
-            color: white;
+            color: white !important;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+        }
+
+        #header nav a:visited,
+        #header nav a:active,
+        #header nav a:hover,
+        #header nav a:focus {
+            color: white !important;
         }
 
         #header h1 {
@@ -82,7 +89,7 @@
         }
 
         body {
-            padding-top: 40px; /* ajustado para compensar o header fixo */
+            padding-top: 0px;
             margin: 0;
         }
     </style>
@@ -160,7 +167,6 @@
                 direction *= -1;
             }
 
-            // Brilho: de 1.3 no centro até 0.8 nas extremidades
             const normalized = Math.abs(angle) / maxAngle;
             const brightness = 1.3 - (0.5 * normalized);
 
