@@ -59,7 +59,7 @@
             }
         }
 
-        /* Estilo da barra superior com vidro fosco */
+        /* Barra fixa no topo */
         #header {
             background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
@@ -67,19 +67,25 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
+
             display: flex;
-            justify-content: center; /* centraliza o conteúdo horizontalmente */
+            justify-content: center;
             align-items: center;
-            padding: 10px 30px;
-            min-height: 60px;
+
+            height: 60px; /* altura fixa */
+            padding: 0 30px;
+            box-sizing: border-box;
         }
 
         #header nav ul {
             display: flex;
-            gap: 30px; /* espaçamento entre itens do menu */
+            justify-content: center; /* centraliza os itens do menu */
+            gap: 30px;
             margin: 0;
             padding: 0;
             list-style: none;
+            align-items: center;
+            height: 100%; /* para alinhar verticalmente */
         }
 
         #header nav a {
@@ -89,6 +95,9 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             text-decoration: none;
+            line-height: 60px; /* alinhamento vertical */
+            display: inline-block;
+            height: 100%;
         }
 
         #header nav a:visited,
@@ -98,8 +107,9 @@
             color: white !important;
         }
 
+        /* Espaço para compensar barra fixa */
         body {
-            padding-top: 60px; /* mais espaço para barra fixa */
+            padding-top: 60px;
             margin: 0;
         }
     </style>
@@ -107,7 +117,7 @@
 <body class="is-preload">
 
     <header id="header">
-        <!-- h1 removido para apagar o texto -->
+        <!-- h1 removido -->
 
         <nav>
             <ul>
