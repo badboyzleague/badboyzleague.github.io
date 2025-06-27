@@ -9,6 +9,22 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <style>
+        .logo-wrapper {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo {
+            transition: transform 0.1s linear;
+            transform-style: preserve-3d;
+            will-change: transform;
+            width: 50%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
         @media (max-width: 768px) {
             .video-container {
                 position: relative;
@@ -27,22 +43,6 @@
                 width: 100%;
                 height: 100%;
             }
-        }
-
-        .logo-wrapper {
-            perspective: 1000px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #logo {
-            transition: transform 0.2s ease, filter 0.2s ease;
-            transform-style: preserve-3d;
-            will-change: transform, filter;
-            width: 50%;
-            max-width: 800px;
-            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <!-- Outras seções omitidas para foco -->
+    <!-- Outras seções omitidas -->
 
     <footer id="footer">
         <ul class="icons">
@@ -105,74 +105,27 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- Script interativo -->
+    <!-- Script de rotação automática -->
     <script>
         const logo = document.getElementById('logo');
-        const wrapper = document.querySelector('.logo-wrapper');
 
-        let rect = wrapper.getBoundingClientRect();
+        let angle = 0;
+        let direction = 1;
+        const maxAngle = 20;
+        const speed = 0.2;
 
-        window.addEventListener('resize', () => {
-            rect = wrapper.getBoundingClientRect();
-        });
+        function animateLogo() {
+            angle += speed * direction;
 
-        let pointerX = 0;
-        let pointerY = 0;
-        let ticking = false;
-
-        function updateLogo() {
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-
-            const offsetX = pointerX - centerX;
-            const offsetY = pointerY - centerY;
-
-            const percentX = offsetX / (rect.width / 2);
-            const percentY = offsetY / (rect.height / 2);
-
-            const rotateY = percentX * 20;
-            const rotateX = -percentY * 20;
-
-            const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
-            const maxDistance = Math.sqrt((rect.width / 2) ** 2 + (rect.height / 2) ** 2);
-
-            const brightness = 1.3 - (distance / maxDistance) * 0.6;
-
-            logo.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-            logo.style.filter = `brightness(${brightness})`;
-
-            ticking = false;
-        }
-
-        function requestUpdate(x, y) {
-            pointerX = x;
-            pointerY = y;
-
-            if (!ticking) {
-                window.requestAnimationFrame(updateLogo);
-                ticking = true;
+            if (angle > maxAngle || angle < -maxAngle) {
+                direction *= -1;
             }
+
+            logo.style.transform = `rotateY(${angle}deg)`;
+            requestAnimationFrame(animateLogo);
         }
 
-        document.addEventListener('mousemove', (e) => {
-            requestUpdate(e.clientX, e.clientY);
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 0) {
-                requestUpdate(e.touches[0].clientX, e.touches[0].clientY);
-            }
-        }, { passive: true });
-
-        function resetLogo() {
-            logo.style.transition = 'transform 0.6s ease, filter 0.6s ease';
-            logo.style.transform = 'rotateY(0deg) rotateX(0deg)';
-            logo.style.filter = 'brightness(1)';
-        }
-
-        document.addEventListener('mouseleave', resetLogo);
-        document.addEventListener('touchend', resetLogo);
-        document.addEventListener('touchcancel', resetLogo);
+        animateLogo();
     </script>
 
 </body>
