@@ -108,17 +108,17 @@
         .floating-image-right {
     position: fixed;
     right: 0;
-    bottom: -30px;
+    bottom: -60px;
     width: 480px;
-    z-index: 1100;
+    z-index: 999;
     animation: floatRightLeft 5s ease-in-out infinite;
     pointer-events: none;
 }
 
         @keyframes floatRightLeft {
-    0% { transform: translateX(20px); }
-    50% { transform: translateX(0px); }
-    100% { transform: translateX(20px); }
+    0% { transform: translateX(-20px); }
+    50% { transform: translateX(-40px); }
+    100% { transform: translateX(-20px); }
 }
 
         @keyframes floatLeftRight {
