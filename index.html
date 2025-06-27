@@ -104,6 +104,22 @@
             animation: floatLeftRight 5s ease-in-out infinite;
             pointer-events: none;
         }
+        
+        .floating-image-right {
+    position: fixed;
+    right: 0;
+    bottom: -30px;
+    width: 480px;
+    z-index: 1100;
+    animation: floatRightLeft 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+        @keyframes floatRightLeft {
+    0% { transform: translateX(20px); }
+    50% { transform: translateX(0px); }
+    100% { transform: translateX(20px); }
+}
 
         @keyframes floatLeftRight {
     0% { transform: translateX(-20px); }
@@ -117,6 +133,7 @@
 
     <!-- Imagem flutuante -->
     <img src="images/joebg.png" alt="Personagem" class="floating-image">
+    <img src="images/lilibg.png" alt="Personagem 2" class="floating-image-right">
 
     <header id="header">
         <!-- Título removido conforme pedido anterior -->
