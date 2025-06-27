@@ -89,23 +89,36 @@
             color: white !important;
         }
 
-        #header h1 {
-            color: white;
-            text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+        body {
+            padding-top: 40px;
             margin: 0;
-            font-size: 1.2rem;
         }
 
-        body {
-            padding-top: 0px;
-            margin: 0;
+        /* Imagem flutuante lateral esquerda */
+        .floating-image {
+            position: fixed;
+            left: 0;
+            bottom: 50px;
+            width: 120px;
+            z-index: 999;
+            animation: floatUpDown 5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatUpDown {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
         }
     </style>
 </head>
 <body class="is-preload">
 
+    <!-- Imagem flutuante -->
+    <img src="images/personagem.png" alt="Personagem" class="floating-image">
+
     <header id="header">
-        <h1>BAD BOYZ LEAGUE VER. DEMO 5.0</h1>
+        <!-- Título removido conforme pedido anterior -->
         <nav>
             <ul>
                 <li><a href="#intro"><strong>DOWNLOAD DEMO</strong></a></li>
