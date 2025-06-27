@@ -56,12 +56,17 @@
 
         /* Estilo da barra superior com vidro fosco */
         #header {
-            background-color: rgba(255, 255, 255, 0.3); /* branco com 30% opacidade */
+            background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* Safari */
+            -webkit-backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            min-height: 60px;
         }
 
         #header nav a {
@@ -72,10 +77,13 @@
         #header h1 {
             color: white;
             text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+            margin: 0;
+            font-size: 1.2rem;
         }
 
         body {
-            padding-top: 80px; /* espaço para o header fixo */
+            padding-top: 40px; /* ajustado para compensar o header fixo */
+            margin: 0;
         }
     </style>
 </head>
