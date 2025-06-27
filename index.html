@@ -29,7 +29,7 @@
             }
         }
 
-        /* Estilo para logo interativa */
+        /* Estilo da logo e reflexo */
         .logo-wrapper {
             perspective: 1000px;
             display: flex;
@@ -37,10 +37,34 @@
             align-items: center;
         }
 
-        #logo {
-            transition: transform 0.2s ease;
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            width: 50%;
+            max-width: 800px;
+            margin-bottom: 20px;
             transform-style: preserve-3d;
+        }
+
+        #logo {
+            width: 100%;
+            display: block;
+            transition: transform 0.2s ease;
             will-change: transform;
+        }
+
+        .logo-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: translate(-50%, -50%) rotate(45deg);
+            mix-blend-mode: screen;
+            opacity: 0;
+            transition: opacity 0.2s ease;
         }
     </style>
 </head>
@@ -64,9 +88,11 @@
     <section id="intro" class="main style1 dark fullscreen">
         <div class="content">
             <header>
-                <!-- Logo com rotação 3D -->
                 <div class="logo-wrapper">
-                    <img id="logo" src="bbllogo.png" alt="Logo" style="width: 50%; max-width: 800px; margin-bottom: 20px;">
+                    <div class="logo-container">
+                        <img id="logo" src="bbllogo.png" alt="Logo">
+                        <div class="logo-shine"></div>
+                    </div>
                 </div>
 
                 <div class="video-container" style="margin-bottom: 20px;">
@@ -80,7 +106,7 @@
         </div>
     </section>
 
-    <!-- (demais seções continuam iguais ao seu original) -->
+    <!-- ...as outras seções seguem iguais... -->
 
     <!-- Scripts principais -->
     <script src="assets/js/jquery.min.js"></script>
@@ -92,10 +118,12 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- Script de rotação 3D com mouse -->
+    <!-- Script de rotação 3D e reflexo -->
     <script>
         const logo = document.getElementById('logo');
         const wrapper = document.querySelector('.logo-wrapper');
+        const shine = document.querySelector('.logo-shine');
+        const container = document.querySelector('.logo-container');
 
         document.addEventListener('mousemove', (e) => {
             const rect = wrapper.getBoundingClientRect();
@@ -105,15 +133,23 @@
             const percentX = (e.clientX - centerX) / (rect.width / 2);
             const percentY = (e.clientY - centerY) / (rect.height / 2);
 
-            const rotateY = percentX * 20; // Girar em Y
-            const rotateX = -percentY * 20; // Girar em X (inverso)
+            const rotateY = percentX * 20;
+            const rotateX = -percentY * 20;
 
             logo.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+
+            // Brilho
+            const shineX = (e.clientX - rect.left) / rect.width * 100;
+            const shineY = (e.clientY - rect.top) / rect.height * 100;
+            shine.style.opacity = 1;
+            shine.style.background = `linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%)`;
+            shine.style.transform = `translate(${shineX - 50}%, ${shineY - 50}%) rotate(45deg)`;
         });
 
         document.addEventListener('mouseleave', () => {
             logo.style.transition = 'transform 0.6s ease';
             logo.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            shine.style.opacity = 0;
         });
     </script>
 
