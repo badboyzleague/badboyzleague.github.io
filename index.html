@@ -160,6 +160,12 @@
             50% { transform: translateX(0px); }
             100% { transform: translateX(-20px); }
         }
+
+        @media (max-width: 768px) {
+    .floating-image {
+        z-index: 0; /* ou -1, se quiser absolutamente atrás de tudo */
+    }
+}
     </style>
 </head>
 <body class="is-preload">
