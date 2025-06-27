@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <!-- As outras seções aqui... -->
+    <!-- Outras seções omitidas para foco -->
 
     <footer id="footer">
         <ul class="icons">
@@ -95,6 +95,7 @@
         </ul>
     </footer>
 
+    <!-- Scripts base -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.poptrox.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -104,6 +105,7 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <!-- Script interativo -->
     <script>
         const logo = document.getElementById('logo');
         const wrapper = document.querySelector('.logo-wrapper');
@@ -114,16 +116,16 @@
             rect = wrapper.getBoundingClientRect();
         });
 
-        let mouseX = 0;
-        let mouseY = 0;
+        let pointerX = 0;
+        let pointerY = 0;
         let ticking = false;
 
         function updateLogo() {
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
 
-            const offsetX = mouseX - centerX;
-            const offsetY = mouseY - centerY;
+            const offsetX = pointerX - centerX;
+            const offsetY = pointerY - centerY;
 
             const percentX = offsetX / (rect.width / 2);
             const percentY = offsetY / (rect.height / 2);
@@ -142,21 +144,35 @@
             ticking = false;
         }
 
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+        function requestUpdate(x, y) {
+            pointerX = x;
+            pointerY = y;
 
             if (!ticking) {
                 window.requestAnimationFrame(updateLogo);
                 ticking = true;
             }
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            requestUpdate(e.clientX, e.clientY);
         });
 
-        document.addEventListener('mouseleave', () => {
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                requestUpdate(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
+
+        function resetLogo() {
             logo.style.transition = 'transform 0.6s ease, filter 0.6s ease';
             logo.style.transform = 'rotateY(0deg) rotateX(0deg)';
             logo.style.filter = 'brightness(1)';
-        });
+        }
+
+        document.addEventListener('mouseleave', resetLogo);
+        document.addEventListener('touchend', resetLogo);
+        document.addEventListener('touchcancel', resetLogo);
     </script>
 
 </body>
