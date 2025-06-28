@@ -231,17 +231,19 @@
     <header id="header">
         <nav>
             <ul>
-                <!-- link com classe disabled para ficar inativo -->
+                <!-- "DOWNLOAD DEMO" desativado -->
                 <li><a href="#intro" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
-                <li><a href="#one"><strong>TRAILER</strong></a></li>
-                <li><a href="#two"><strong>WHITEPAPER</strong></a></li>
-                <li><a href="#work"><strong>STAFF</strong></a></li>
-                <li><a href="#contact"><strong>DONATE</strong></a></li>
+                <!-- Links de navegação com classe para controle JS -->
+                <li><a href="#one" class="menu-link"><strong>TRAILER</strong></a></li>
+                <li><a href="#two" class="menu-link"><strong>WHITEPAPER</strong></a></li>
+                <li><a href="#work" class="menu-link"><strong>STAFF</strong></a></li>
+                <li><a href="#contact" class="menu-link"><strong>DONATE</strong></a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="intro" class="main style1 dark fullscreen">
+    <!-- Seções com display controlado via JS -->
+    <section id="one" class="main style1 dark fullscreen">
         <div class="content">
             <header>
                 <div class="logo-wrapper">
@@ -269,6 +271,29 @@
             </ul>
 
             <iframe src="https://caixinhadedoacao.vakinha.com.br/?campaignId=5585143&buttonColor=A27ADA&headerColor=81A6BB" style="width: 100%; height: 900px; border: unset"></iframe>
+        </div>
+    </section>
+
+    <section id="two" class="main style1 dark fullscreen" style="display:none;">
+        <div class="content">
+            <h2>Whitepaper</h2>
+            <div id="whitepaper-content">
+                ola mundo
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="main style1 dark fullscreen" style="display:none;">
+        <div class="content">
+            <h2>Staff</h2>
+            <p>Conteúdo do Staff aqui.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="main style1 dark fullscreen" style="display:none;">
+        <div class="content">
+            <h2>Donate</h2>
+            <p>Conteúdo do Donate aqui.</p>
         </div>
     </section>
 
@@ -345,6 +370,41 @@
             setTimeout(() => {
                 bubble.remove();
             }, 1200);
+        });
+    </script>
+
+    <!-- Script para navegação entre seções -->
+    <script>
+        const menuLinks = document.querySelectorAll('a.menu-link');
+        const sections = ['one', 'two', 'work', 'contact'];
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+
+                if (!sections.includes(targetId)) return;
+
+                // Esconde todas as seções
+                sections.forEach(id => {
+                    document.getElementById(id).style.display = 'none';
+                });
+
+                // Mostra a seção alvo
+                document.getElementById(targetId).style.display = 'block';
+
+                // Opcional: scroll para o topo
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Exibe #one ao carregar a página
+        window.addEventListener('load', () => {
+            sections.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            document.getElementById('one').style.display = 'block';
         });
     </script>
 
