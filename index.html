@@ -96,6 +96,15 @@
             color: #abb9d0 !important;
         }
 
+        /* Classe para link desativado */
+        a.disabled {
+            pointer-events: none;
+            color: #999 !important; /* cinza claro */
+            text-shadow: none !important;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         #footer {
             background-color: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
@@ -222,7 +231,8 @@
     <header id="header">
         <nav>
             <ul>
-                <li><a href="#intro"><strong>DOWNLOAD DEMO</strong></a></li>
+                <!-- link com classe disabled para ficar inativo -->
+                <li><a href="#intro" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
                 <li><a href="#one"><strong>TRAILER</strong></a></li>
                 <li><a href="#two"><strong>WHITEPAPER</strong></a></li>
                 <li><a href="#work"><strong>STAFF</strong></a></li>
@@ -258,7 +268,7 @@
                 <li><a href="https://discord.gg/VXM8nGhS" class="icon brands fa-discord"><span class="label">Discord</span></a></li>
             </ul>
 
-<iframe src="https://caixinhadedoacao.vakinha.com.br/?campaignId=5585143&buttonColor=A27ADA&headerColor=81A6BB" style="width: 100%; height: 900px; border: unset"></iframe>
+            <iframe src="https://caixinhadedoacao.vakinha.com.br/?campaignId=5585143&buttonColor=A27ADA&headerColor=81A6BB" style="width: 100%; height: 900px; border: unset"></iframe>
         </div>
     </section>
 
