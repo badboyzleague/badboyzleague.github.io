@@ -232,7 +232,7 @@
         <nav>
             <ul>
                 <!-- "DOWNLOAD DEMO" desativado -->
-                <li><a href="#contact" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
+                <li><a href="#" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
                 <!-- Links de navegação com classe para controle JS -->
                 <li><a href="#intro" class="menu-link"><strong>TRAILER</strong></a></li>
                 <li><a href="#one" class="menu-link"><strong>WHITEPAPER</strong></a></li>
@@ -377,7 +377,7 @@
     <!-- Script para navegação entre seções -->
     <script>
         const menuLinks = document.querySelectorAll('a.menu-link');
-        const sections = ['one', 'two', 'work', 'contact'];
+        const sections = ['intro', 'one', 'two', 'work'];
 
         menuLinks.forEach(link => {
             link.addEventListener('click', function(e) {
