@@ -113,14 +113,18 @@
         }
 
         .floating-image {
-            position: fixed;
-            left: 0;
-            bottom: -30px;
-            width: 480px; 
-            z-index: 1100;
-            animation: floatLeftRight 5s ease-in-out infinite;
-            pointer-events: none;
-        }
+    position: fixed;
+    left: 0;
+    bottom: -30px;
+    width: 480px;
+    height: auto; /* mantém a proporção */
+    z-index: 1100;
+    animation: floatLeftRight 5s ease-in-out infinite;
+    pointer-events: none;
+    transform: scale(1); /* evita alterações por zoom */
+    transform-origin: bottom left;
+    image-rendering: auto; /* evita distorções em alguns navegadores */
+}
 
         .floating-image-right {
             position: fixed;
