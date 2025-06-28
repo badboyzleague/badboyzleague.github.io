@@ -188,8 +188,6 @@
         .bubble {
             position: absolute;
             pointer-events: none;
-            width: 30px;
-            height: 30px;
             background-image: url('images/bubble.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -301,14 +299,29 @@
         animateLogo();
     </script>
 
-    <!-- Script do rastro de bolhas -->
+    <!-- Script do rastro de bolhas atualizado -->
     <script>
+        let lastBubbleTime = 0;
+
         document.addEventListener('mousemove', function(e) {
+            const now = Date.now();
+            const delay = 100; // delay em milissegundos entre bolhas
+
+            if (now - lastBubbleTime < delay) return;
+            lastBubbleTime = now;
+
             const bubble = document.createElement('div');
             bubble.className = 'bubble';
 
-            bubble.style.left = (e.clientX - 15) + 'px';
-            bubble.style.top = (e.clientY - 15) + 'px';
+            const size = 20 + Math.random() * 20;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+
+            const offsetX = (Math.random() - 0.5) * 20;
+            const offsetY = (Math.random() - 0.5) * 20;
+
+            bubble.style.left = (e.clientX - size / 2 + offsetX) + 'px';
+            bubble.style.top = (e.clientY - size / 2 + offsetY) + 'px';
 
             document.body.appendChild(bubble);
 
