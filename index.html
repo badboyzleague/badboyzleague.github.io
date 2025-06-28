@@ -17,11 +17,11 @@
         body {
             padding-top: 0px;
             margin: 0;
-            cursor: url('images/bblcursor.cur'), auto; /* Cursor padrão */
+            cursor: url('images/bblcursor.cur'), auto;
         }
 
         a, button, input {
-            cursor: url('images/bblhand.cur'), pointer; /* Cursor mãozinha personalizada */
+            cursor: url('images/bblhand.cur'), pointer;
         }
 
         .logo-wrapper {
@@ -96,10 +96,9 @@
             color: #abb9d0 !important;
         }
 
-        /* Classe para link desativado */
         a.disabled {
             pointer-events: none;
-            color: #999 !important; /* cinza claro */
+            color: #999 !important;
             text-shadow: none !important;
             opacity: 0.6;
             cursor: not-allowed;
@@ -198,7 +197,6 @@
             }
         }
 
-        /* BOLHA DO RASTRO DO MOUSE */
         .bubble {
             position: absolute;
             pointer-events: none;
@@ -231,9 +229,7 @@
     <header id="header">
         <nav>
             <ul>
-                <!-- "DOWNLOAD DEMO" desativado -->
                 <li><a href="#" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
-                <!-- Links de navegação com classe para controle JS -->
                 <li><a href="#intro" class="menu-link"><strong>TRAILER</strong></a></li>
                 <li><a href="#one" class="menu-link"><strong>WHITEPAPER</strong></a></li>
                 <li><a href="#two" class="menu-link"><strong>STAFF</strong></a></li>
@@ -242,7 +238,6 @@
         </nav>
     </header>
 
-    <!-- Seções com display controlado via JS -->
     <section id="intro" class="main style1 dark fullscreen">
         <div class="content">
             <header>
@@ -269,8 +264,6 @@
                 <li><a href="https://br.linkedin.com/novoolimporec" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
                 <li><a href="https://discord.gg/VXM8nGhS" class="icon brands fa-discord"><span class="label">Discord</span></a></li>
             </ul>
-
-            
         </div>
     </section>
 
@@ -304,7 +297,6 @@
         </ul>
     </footer>
 
-    <!-- Scripts base -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.poptrox.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -314,7 +306,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- Script rotação do logo -->
     <script>
         const logo = document.getElementById('logo');
 
@@ -342,13 +333,12 @@
         animateLogo();
     </script>
 
-    <!-- Script do rastro de bolhas atualizado -->
     <script>
         let lastBubbleTime = 0;
 
         document.addEventListener('mousemove', function(e) {
             const now = Date.now();
-            const delay = 100; // delay em milissegundos entre bolhas
+            const delay = 100;
 
             if (now - lastBubbleTime < delay) return;
             lastBubbleTime = now;
@@ -374,7 +364,6 @@
         });
     </script>
 
-    <!-- Script para navegação entre seções -->
     <script>
         const menuLinks = document.querySelectorAll('a.menu-link');
         const sections = ['intro', 'one', 'two', 'work'];
@@ -384,28 +373,22 @@
                 e.preventDefault();
 
                 const targetId = this.getAttribute('href').substring(1);
-
                 if (!sections.includes(targetId)) return;
 
-                // Esconde todas as seções
                 sections.forEach(id => {
                     document.getElementById(id).style.display = 'none';
                 });
 
-                // Mostra a seção alvo
                 document.getElementById(targetId).style.display = 'block';
-
-                // Opcional: scroll para o topo
                 window.scrollTo(0, 0);
             });
         });
 
-        // Exibe #one ao carregar a página
         window.addEventListener('load', () => {
             sections.forEach(id => {
                 document.getElementById(id).style.display = 'none';
             });
-            document.getElementById('one').style.display = 'block';
+            document.getElementById('intro').style.display = 'block'; // Corrigido para "intro"
         });
     </script>
 
