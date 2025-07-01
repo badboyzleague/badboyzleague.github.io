@@ -8,12 +8,9 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- Fonte personalizada para o menu -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
-    </style>
 
-    <style>
         body {
             padding-top: 0px;
             margin: 0;
@@ -220,19 +217,26 @@
             }
         }
 
-        /* NOVO: Centralizar as seções e conteúdo */
+        /* Centralização das seções */
         .main.fullscreen {
+            width: 100%;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            box-sizing: border-box;
+            padding: 0 20px;
         }
 
         .content {
             max-width: 1000px;
+            width: 100%;
             margin: 0 auto;
-            padding: 2em;
+            padding: 2em 1em;
             text-align: center;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -259,7 +263,6 @@
                 <div class="logo-wrapper">
                     <img id="logo" src="bbllogo.gif" alt="Logo">
                 </div>
-
                 <div class="video-wrapper">
                     <iframe class="video-embed"
                         src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph"
