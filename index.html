@@ -45,20 +45,24 @@
             margin-bottom: 20px;
         }
 
-        .video-wrapper {
+        .video-wrapper,
+        .whitepaper-wrapper {
             background-image: url('images/fundo-bolha.png');
             background-size: cover;
             background-position: center;
             border-radius: 40px;
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
             width: 100%;
             max-width: 720px;
             margin: 0 auto 30px auto;
+        }
+
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .video-embed {
@@ -177,7 +181,8 @@
                 aspect-ratio: 16 / 9;
             }
 
-            .video-wrapper {
+            .video-wrapper,
+            .whitepaper-wrapper {
                 width: 90%;
                 padding: 10px;
                 border-radius: 20px;
@@ -232,7 +237,7 @@
             width: 100%;
             text-align: center;
             box-sizing: border-box;
-            padding: 60px 20px 0 20px; /* Aumentado o padding-top para 80px */
+            padding: 60px 20px 0 20px;
         }
 
         .content {
@@ -248,56 +253,55 @@
         }
 
         .staff-gallery {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0; /* sem espaço entre imagens */
-}
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+        }
 
-.staff-gallery img {
-    width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-}
+        .staff-gallery img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
 
         .staff-layout {
-    display: flex;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 0;
-}
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 0;
+        }
 
-.staff-photo {
-    flex: 1;
-    max-width: 33.33%;
-}
+        .staff-photo {
+            flex: 1;
+            max-width: 33.33%;
+        }
 
-.staff-photo img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
-}
+        .staff-photo img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-.staff-info {
-    flex: 2;
-    padding-left: 20px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #fff;
-    font-family: sans-serif;
-}
+        .staff-info {
+            flex: 2;
+            padding-left: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            font-family: sans-serif;
+        }
 
     </style>
 </head>
 <body class="is-preload">
 
-    <!-- Imagem flutuante -->
     <img src="images/joebg.png" alt="Personagem" class="floating-image">
 
     <header id="header">
@@ -319,14 +323,7 @@
                     <img id="logo" src="bbllogo.gif" alt="Logo">
                 </div>
                 <div class="video-wrapper">
-                    <iframe class="video-embed"
-                        src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph" title="YouTube video player" allowfullscreen></iframe>
                 </div>
             </header>
 
@@ -344,28 +341,16 @@
         <div class="content">
             <h2>Whitepaper</h2>
             <br>
-            <div id="whitepaper-content" align="center">
-        <strong>Bad Boyz League</strong> é um shooter em terceira pessoa, com estética cartoon e uma proposta única:<br>
-        combate tático por turnos ou em tempo real, com cartas elementares, sinergias de área, drones<br>
-        e progressão estratégica baseada em habilidade.
-    </p>
-    <p>
-        • <strong>Combate Híbrido:</strong> escolha entre modo tático por turnos (Turn Battle) ou o intenso Live Battle em tempo real.
-    </p>
-    <p>
-        • <strong>Cartas Elementares e Sinérgicas:</strong> mais de 30 cartas com efeitos ativos, passivos e sinergia entre elementos (planta, água, fogo, raio, pedra, vento).
-    </p>
-    <p>
-        • <strong>Mundos Dinâmicos:</strong> cada fase (hostil ou sinérgica) afeta o combate, com bônus de ataque e penalidades estratégicas.
-    </p>
-    <p>
-        • <strong>Drones de Suporte:</strong> velocidade, ataque, escudo ou cura — cada jogador começa com um drone que muda completamente sua abordagem.
-    </p>
-    <p>
-        • <strong>Sistema de Ranked com Estratégia Climática:</strong> o vento e fatores naturais afetam o RNG de forma controlada — aumentando a profundidade estratégica.
-    </p>
-</div>
-
+            <div class="whitepaper-wrapper">
+                <p><strong>Bad Boyz League</strong> é um shooter em terceira pessoa, com estética cartoon e uma proposta única:<br>
+                combate tático por turnos ou em tempo real, com cartas elementares, sinergias de área, drones<br>
+                e progressão estratégica baseada em habilidade.</p>
+                <p>• <strong>Combate Híbrido:</strong> escolha entre modo tático por turnos (Turn Battle) ou o intenso Live Battle em tempo real.</p>
+                <p>• <strong>Cartas Elementares e Sinérgicas:</strong> mais de 30 cartas com efeitos ativos, passivos e sinergia entre elementos (planta, água, fogo, raio, pedra, vento).</p>
+                <p>• <strong>Mundos Dinâmicos:</strong> cada fase (hostil ou sinérgica) afeta o combate, com bônus de ataque e penalidades estratégicas.</p>
+                <p>• <strong>Drones de Suporte:</strong> velocidade, ataque, escudo ou cura — cada jogador começa com um drone que muda completamente sua abordagem.</p>
+                <p>• <strong>Sistema de Ranked com Estratégia Climática:</strong> o vento e fatores naturais afetam o RNG de forma controlada — aumentando a profundidade estratégica.</p>
+            </div>
         </div>
     </section>
 
@@ -374,29 +359,27 @@
             <h2>Staff</h2>
             <p>Conteúdo do Staff aqui.</p>
             <div class="staff-layout">
-    <div class="staff-photo">
-        <img src="images/staff1.jpg" alt="Membro da Equipe">
-    </div>
-    <div class="staff-info">
-        <h3>João Immianowsky</h3>
-        <p><strong>Função:</strong> Diretor Criativo</p>
-        <p><strong>Experiência:</strong> 10 anos no setor do audiovisual.</p>
-        <p><strong>Contribuições:</strong> Criação e Estruturação do projeto</p>
-    </div>
-</div>
-
+                <div class="staff-photo">
+                    <img src="images/staff1.jpg" alt="Membro da Equipe">
+                </div>
+                <div class="staff-info">
+                    <h3>João Immianowsky</h3>
+                    <p><strong>Função:</strong> Diretor Criativo</p>
+                    <p><strong>Experiência:</strong> 10 anos no setor do audiovisual.</p>
+                    <p><strong>Contribuições:</strong> Criação e Estruturação do projeto</p>
+                </div>
+            </div>
             <div class="staff-gallery">
-    <img src="images/nowska.png" alt="Staff 1">
-    <img src="images/novoolimpo.png" alt="Staff 2">
-    <img src="images/infamios.png" alt="Staff 3">
-</div>
+                <img src="images/nowska.png" alt="Staff 1">
+                <img src="images/novoolimpo.png" alt="Staff 2">
+                <img src="images/infamios.png" alt="Staff 3">
+            </div>
         </div>
     </section>
 
     <section id="three" class="main style1 dark fullscreen" style="display:none;">
         <div class="content">
             <h2>Donate</h2>
-            <p> </p>
             <iframe src="https://caixinhadedoacao.vakinha.com.br/?campaignId=5585143&buttonColor=A27ADA&headerColor=81A6BB" style="width: 100%; height: 900px; border: unset"></iframe>
         </div>
     </section>
