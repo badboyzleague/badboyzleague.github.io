@@ -1,3 +1,4 @@
+Você disse:
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -47,7 +48,6 @@
 
         .video-wrapper,
         .whitepaper-wrapper {
-            background-image: url('images/fundo-bolha.png');
             background-size: 100% 100%;
             background-position: center;
             border-radius: 40px;
@@ -55,6 +55,9 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
             width: 100%;
             margin: 0 auto 0px auto;
+
+            whitepaper-wrapper {
+                background-image: url('images/fundo-bolha.png');
         }
 
         .video-wrapper {
@@ -191,16 +194,14 @@
                 display: none !important;
             }
 
-            /* Correção aplicada aqui */
             #header nav ul {
-                display: flex !important;
+                display: flex;
                 flex-direction: row;
                 justify-content: center;
                 flex-wrap: wrap;
                 gap: 10px;
                 padding: 0;
                 margin: 0;
-                list-style: none;
             }
 
             #header nav ul li {
@@ -347,7 +348,6 @@
                 combate tático por turnos ou em tempo real, com cartas elementares, sinergias de área, drones<br>
                 e progressão estratégica baseada em habilidade.</p>
                 <p>• <strong>Combate Híbrido:</strong> escolha entre modo tático por turnos (Turn Battle) ou o intenso Live Battle em tempo real.</p>
-                <p>• <strong>Cartas Elementares e Sinérgicas:</strong> mais de 30 cartas com efeitos ativos, passivos e sinergia entre elementos (planta, água, fogo, raio, pedra, vento).</p>
                 <p>• <strong>Mundos Dinâmicos:</strong> cada fase (hostil ou sinérgica) afeta o combate, com bônus de ataque e penalidades estratégicas.</p>
                 <p>• <strong>Drones de Suporte:</strong> velocidade, ataque, escudo ou cura — cada jogador começa com um drone que muda completamente sua abordagem.</p>
                 <p>• <strong>Sistema de Ranked com Estratégia Climática:</strong> o vento e fatores naturais afetam o RNG de forma controlada — aumentando a profundidade estratégica.</p>
@@ -418,8 +418,8 @@
             }
             const normalized = Math.abs(angle) / maxAngle;
             const brightness = 1.3 - (0.3 * normalized);
-            logo.style.transform = `rotateY(${angle}deg) rotateX(7deg)`;
-            logo.style.filter = `brightness(${brightness})`;
+            logo.style.transform = rotateY(${angle}deg) rotateX(7deg);
+            logo.style.filter = brightness(${brightness});
             requestAnimationFrame(animateLogo);
         }
         animateLogo();
