@@ -1,4 +1,3 @@
-Você disse:
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -420,8 +419,8 @@ Você disse:
             }
             const normalized = Math.abs(angle) / maxAngle;
             const brightness = 1.3 - (0.3 * normalized);
-            logo.style.transform = rotateY(${angle}deg) rotateX(7deg);
-            logo.style.filter = brightness(${brightness});
+            logo.style.transform = `rotateY(${angle}deg) rotateX(7deg)`;
+logo.style.filter = `brightness(${brightness})`;
             requestAnimationFrame(animateLogo);
         }
         animateLogo();
