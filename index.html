@@ -11,6 +11,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
 
+        html, body {
+            height: 100%;
+        }
+
         body {
             padding-top: 0px;
             margin: 0;
@@ -47,16 +51,20 @@
             background-position: center;
             border-radius: 40px;
             padding: 20px;
-            width: fit-content;
-            margin: 0 auto 30px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto 30px auto;
         }
 
         .video-embed {
-            width: 720px;
-            height: 405px;
+            width: 100%;
+            aspect-ratio: 16 / 9;
             border-radius: 20px;
-            display: block;
             border: none;
         }
 
@@ -217,14 +225,11 @@
             }
         }
 
-        /* Centralização das seções */
         .main.fullscreen {
-            width: 100%;
+            display: grid;
+            place-items: center;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
             text-align: center;
             box-sizing: border-box;
             padding: 0 20px;
@@ -235,8 +240,11 @@
             width: 100%;
             margin: 0 auto;
             padding: 2em 1em;
-            text-align: center;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
