@@ -246,6 +246,22 @@
             align-items: center;
             justify-content: center;
         }
+
+        .staff-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0; /* sem espaço entre imagens */
+}
+
+.staff-gallery img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
     </style>
 </head>
 <body class="is-preload">
@@ -326,6 +342,11 @@
         <div class="content">
             <h2>Staff</h2>
             <p>Conteúdo do Staff aqui.</p>
+            <div class="staff-gallery">
+    <img src="images/nowska.png" alt="Staff 1">
+    <img src="images/novoolimpo.png" alt="Staff 2">
+    <img src="images/infamios.png" alt="Staff 3">
+</div>
         </div>
     </section>
 
