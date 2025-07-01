@@ -444,29 +444,40 @@
     </script>
 
     <script>
-        const menuLinks = document.querySelectorAll('a.menu-link');
-        const sections = ['intro', 'one', 'two', 'three'];
+    const menuLinks = document.querySelectorAll('a.menu-link');
+    const sections = ['intro', 'one', 'two', 'three'];
+    const floatingImage = document.querySelector('.floating-image');
 
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                if (!sections.includes(targetId)) return;
-                sections.forEach(id => {
-                    document.getElementById(id).style.display = 'none';
-                });
-                document.getElementById(targetId).style.display = 'block';
-                window.scrollTo(0, 0);
-            });
-        });
-
-        window.addEventListener('load', () => {
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            if (!sections.includes(targetId)) return;
             sections.forEach(id => {
                 document.getElementById(id).style.display = 'none';
             });
-            document.getElementById('intro').style.display = 'block';
+            document.getElementById(targetId).style.display = 'block';
+            window.scrollTo(0, 0);
+
+            // Ajusta a opacidade da imagem joebg.png
+            if (targetId === 'intro') {
+                floatingImage.style.opacity = '1';  // 100%
+            } else {
+                floatingImage.style.opacity = '0.33';  // 33%
+            }
         });
-    </script>
+    });
+
+    window.addEventListener('load', () => {
+        sections.forEach(id => {
+            document.getElementById(id).style.display = 'none';
+        });
+        document.getElementById('intro').style.display = 'block';
+
+        // Define opacidade inicial para o intro (trailer)
+        floatingImage.style.opacity = '1';
+    });
+</script>
 
 </body>
 </html>
