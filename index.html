@@ -1,605 +1,162 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Bad Boyz League</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="icon" href="bblicon.svg" type="image/svg+xml">   
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WJ</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
-
-        html, body {
-            height: 100%;
+        /* RESET GERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            padding-top: 0px;
-            margin: 0;
-            cursor: url('images/bblcursor.cur'), auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
         }
 
-        a, button, input {
-            cursor: url('images/bblhand.cur'), pointer;
-        }
-
-        .logo-wrapper {
-            perspective: 1800px;
-            perspective-origin: center;
+        header {
+            background-color: #111;
+            padding: 15px 30px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-        }
-
-        #logo {
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            will-change: transform;
-            transition: transform 0.1s linear;
-            width: 60%;
-            max-width: 800px;
-            margin-bottom: 20px;
-        }
-
-        .whitepaper-wrapper {
-            background-image: url('images/fundo-bolha.png');
-            background-size: 100% 100%;
-            background-position: center;
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            width: 100%;
-            margin: 0 auto 0px auto;
-        }
-
-        .video-wrapper {
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            width: 100%;
-            margin: 0 auto 0px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .video-embed {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 20px;
-            border: none;
-        }
-
-        #header {
-            background-color: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            justify-content: space-between;
             position: fixed;
             width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 30px;
-            min-height: 60px;
+            top: 0;
+            z-index: 999;
         }
 
-        #header nav a {
-            color: white !important;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-            font-family: 'Bitcount Grid Double', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        #header nav a:visited,
-        #header nav a:active,
-        #header nav a:focus {
-            color: white !important;
+        nav ul li a:hover {
+            color: #0ff;
         }
 
-        #header nav a:hover {
-            color: #abb9d0 !important;
-        }
-
-        a.disabled {
-            pointer-events: none;
-            color: #999 !important;
-            text-shadow: none !important;
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        /* MENU HAMBURGUER - APENAS MOBILE */
-        @media (max-width: 768px) {
-            #header .hamburger {
-                display: block;
-                width: 30px;
-                height: 25px;
-                position: relative;
-                cursor: pointer;
-                z-index: 1001;
-            }
-            
-            #header .hamburger span {
-                display: block;
-                position: absolute;
-                height: 3px;
-                width: 100%;
-                background: white;
-                border-radius: 3px;
-                opacity: 1;
-                left: 0;
-                transform: rotate(0deg);
-                transition: .25s ease-in-out;
-            }
-            
-            #header .hamburger span:nth-child(1) {
-                top: 0px;
-            }
-            
-            #header .hamburger span:nth-child(2),
-            #header .hamburger span:nth-child(3) {
-                top: 10px;
-            }
-            
-            #header .hamburger span:nth-child(4) {
-                top: 20px;
-            }
-            
-            #header .hamburger.open span:nth-child(1) {
-                top: 10px;
-                width: 0%;
-                left: 50%;
-            }
-            
-            #header .hamburger.open span:nth-child(2) {
-                transform: rotate(45deg);
-            }
-            
-            #header .hamburger.open span:nth-child(3) {
-                transform: rotate(-45deg);
-            }
-            
-            #header .hamburger.open span:nth-child(4) {
-                top: 10px;
-                width: 0%;
-                left: 50%;
-            }
-            
-            #header nav ul {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transform: translateY(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-                padding: 60px 0 0;
-                margin: 0;
-            }
-            
-            #header nav ul.open {
-                transform: translateY(0);
-            }
-            
-            #header nav ul li {
-                margin: 15px 0;
-            }
-
-            /* Esconde o menu original em mobile */
-            #header nav > ul {
-                display: none;
-            }
-        }
-        
-        /* COMPORTAMENTO ORIGINAL DO DESKTOP */
-        @media (min-width: 769px) {
-            #header .hamburger {
-                display: none !important;
-            }
-            
-            #header nav > ul {
-                display: flex;
-                gap: 20px;
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
-            
-            #header nav ul li {
-                margin: 0;
-            }
-        }
-
-        #footer {
-            background-color: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: flex-end;
-            padding: 10px 30px;
-            position: relative;
-            z-index: 1000;
-            color: white;
-        }
-
-        #footer .menu {
-            font-weight: bold;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: right;
-        }
-
-        .floating-image {
-            position: fixed;
-            left: 0;
-            bottom: -30px;
-            width: 480px;
-            height: auto;
-            z-index: 1100;
-            animation: floatLeftRight 5s ease-in-out infinite;
-            pointer-events: none;
-            transform: scale(1);
-            transform-origin: bottom left;
-            image-rendering: auto;
-        }
-
-        .floating-image-right {
-            position: fixed;
-            right: 0;
-            bottom: -60px;
-            width: 480px;
-            z-index: 999;
-            animation: floatRightLeft 5s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes floatRightLeft {
-            0% { transform: translateX(80px); }
-            50% { transform: translateX(60px); }
-            100% { transform: translateX(80px); }
-        }
-
-        @keyframes floatLeftRight {
-            0% { transform: translateX(-20px); }
-            50% { transform: translateX(0px); }
-            100% { transform: translateX(-20px); }
-        }
-
-        @media (max-width: 768px) {
-            #logo {
-                width: 80%;
-                max-width: none;
-            }
-
-            .video-embed {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16 / 9;
-            }
-
-            .video-wrapper,
-            .whitepaper-wrapper {
-                width: 90%;
-                padding: 10px;
-                border-radius: 20px;
-            }
-
-            .floating-image {
-                display: none !important;
-            }
-        }
-
-        .bubble {
-            position: absolute;
-            pointer-events: none;
-            background-image: url('images/bubble.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            animation: bubbleFade 1.2s ease-out forwards;
-            z-index: 9999;
-            opacity: 0.9;
-        }
-
-        @keyframes bubbleFade {
-            0% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(1.8) translateY(-40px);
-            }
-        }
-
-        .main.fullscreen {
-            display: grid;
-            place-items: center;
-            min-height: 100vh;
-            width: 100%;
-            text-align: center;
-            box-sizing: border-box;
-            padding: 60px 20px 0 20px;
-        }
-
-        .content {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 2em 1em;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .staff-gallery {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-        }
-
-        .staff-gallery img {
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-        }
-
-        .staff-layout {
-            display: flex;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            gap: 0;
-        }
-
-        .staff-photo {
-            flex: 1;
-            max-width: 33.33%;
-        }
-
-        .staff-photo img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .staff-info {
-            flex: 2;
-            padding-left: 20px;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
             color: #fff;
-            font-family: sans-serif;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                background-color: #111;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                z-index: 998;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 10px 0;
+            }
+        }
+
+        main {
+            padding: 100px 30px 30px 30px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h1, h2 {
+            color: #0ff;
+        }
+
+        p {
+            margin-top: 10px;
+            line-height: 1.6;
         }
     </style>
 </head>
-<body class="is-preload">
-
-    <img src="images/joebg.png" alt="Personagem" class="floating-image">
-
+<body>
     <header id="header">
+        <div class="logo">WJ</div>
+        <button id="menu-toggle" class="hamburger">&#9776;</button>
         <nav>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <ul>
-                <li><a href="#" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
-                <li><a href="#intro" class="menu-link"><strong>TRAILER</strong></a></li>
-                <li><a href="#one" class="menu-link"><strong>WHITEPAPER</strong></a></li>
-                <li><a href="#two" class="menu-link"><strong>STAFF</strong></a></li>
-                <li><a href="#three" class="menu-link"><strong>DONATE</strong></a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Restante do conteúdo permanece EXATAMENTE IGUAL -->
-    <section id="intro" class="main style1 dark fullscreen">
-        <div class="content">
-            <header>
-                <div class="logo-wrapper">
-                    <img id="logo" src="bbllogo.gif" alt="Logo">
-                </div>
-                <div class="video-wrapper">
-                    <iframe class="video-embed" src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph" title="YouTube video player" allowfullscreen></iframe>
-                </div>
-            </header>
-
-            <p>ACOMPANHE NOSSAS REDES</p>
-            <ul class="icons">
-                <li><a href="https://x.com/novoolimporec" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="https://instagram.com/novoolimporec" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="https://br.linkedin.com/novoolimporec" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                <li><a href="https://discord.gg/VXM8nGhS" class="icon brands fa-discord"><span class="label">Discord</span></a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="one" class="main style1 dark fullscreen" style="display:none;">
-        <div class="content">
-            <h2>Whitepaper</h2>
-            <br>
-            <div class="whitepaper-wrapper">
-                <p><strong>Bad Boyz League</strong> é um shooter em terceira pessoa, com estética cartoon e uma proposta única:<br>
-                combate tático por turnos ou em tempo real, com cartas elementares, sinergias de área, drones<br>
-                e progressão estratégica baseada em habilidade.</p>
-                <p>• <strong>Combate Híbrido:</strong> escolha entre modo tático por turnos (Turn Battle) ou o intenso Live Battle em tempo real.</p>
-                <p>• <strong>Mundos Dinâmicos:</strong> cada fase (hostil ou sinérgica) afeta o combate, com bônus de ataque e penalidades estratégicas.</p>
-                <p>• <strong>Drones de Suporte:</strong> velocidade, ataque, escudo ou cura — cada jogador começa com um drone que muda completamente sua abordagem.</p>
-                <p>• <strong>Sistema de Ranked com Estratégia Climática:</strong> o vento e fatores naturais afetam o RNG de forma controlada — aumentando a profundidade estratégica.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="two" class="main style1 dark fullscreen" style="display:none;">
-        <div class="content">
-            <h2>Staff</h2>
-            <div class="whitepaper-wrapper">
-                <div class="staff-layout">
-                    <div class="staff-photo">
-                        <img src="images/staff1.png" alt="Membro da Equipe">
-                    </div>
-                    <div class="staff-info">
-                        <h3>💎 João Immianowsky</h3>
-                        <p><strong>Função:</strong> Direção Criativa, Modelagem, Desenvolvimento <br>
-                        <strong>Experiência:</strong> 10 anos no setor do audiovisual.<br>
-                        <strong>Contribuições:</strong> Criação e Estruturação do projeto</p>
-                    </div>
-                </div>
-                </div>
-                <h2>Apoio</h2>
-            <br>
-                <div class="staff-gallery">
-                    <img src="images/nowska.png" alt="Staff 1">
-                    <img src="images/novoolimpo.png" alt="Staff 2">
-                    <img src="images/infamios.png" alt="Staff 3">
-                </div>
-            
-        </div>
-    </section>
-
-    <section id="three" class="main style1 dark fullscreen" style="display:none;">
-        <div class="content">
-            <h2>Donate</h2>
-            <iframe src="https://caixinhadedoacao.vakinha.com.br/?campaignId=5585143&buttonColor=A27ADA&headerColor=81A6BB" style="width: 100%; height: 900px; border: unset"></iframe>
-        </div>
-    </section>
-
-    <footer id="footer">
-        <ul class="menu">
-            <li>&copy; NOVO OLIMPO AUDIOVISUAL 2025</li>
-        </ul>
-    </footer>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.poptrox.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <main>
+        <section id="inicio">
+            <h1>Bem-vindo à WJ</h1>
+            <p>Texto introdutório...</p>
+        </section>
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Informações sobre a empresa...</p>
+        </section>
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <p>Descrição dos serviços oferecidos...</p>
+        </section>
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Formas de entrar em contato...</p>
+        </section>
+    </main>
 
     <script>
-        const logo = document.getElementById('logo');
-        let angle = 0;
-        let direction = 1;
-        const maxAngle = 20;
-        const speed = window.innerWidth <= 768 ? 0.50 : 0.25;
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.querySelector('header nav');
 
-        function animateLogo() {
-            angle += speed * direction;
-            if (angle > maxAngle || angle < -maxAngle) {
-                direction *= -1;
-            }
-            const normalized = Math.abs(angle) / maxAngle;
-            const brightness = 1.3 - (0.3 * normalized);
-            logo.style.transform = `rotateY(${angle}deg) rotateX(7deg)`;
-            logo.style.filter = `brightness(${brightness})`;
-            requestAnimationFrame(animateLogo);
-        }
-        animateLogo();
-    </script>
-
-    <script>
-        let lastBubbleTime = 0;
-        document.addEventListener('mousemove', function(e) {
-            const now = Date.now();
-            const delay = 100;
-            if (now - lastBubbleTime < delay) return;
-            lastBubbleTime = now;
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-            const size = 20 + Math.random() * 20;
-            bubble.style.width = size + 'px';
-            bubble.style.height = size + 'px';
-            const offsetX = (Math.random() - 0.5) * 20;
-            const offsetY = (Math.random() - 0.5) * 20;
-            bubble.style.left = (e.clientX - size / 2 + offsetX) + 'px';
-            bubble.style.top = (e.clientY - size / 2 + offsetY) + 'px';
-            document.body.appendChild(bubble);
-            setTimeout(() => {
-                bubble.remove();
-            }, 1200);
-        });
-    </script>
-
-    <script>
-        // Menu sections (original)
-        const menuLinks = document.querySelectorAll('a.menu-link');
-        const sections = ['intro', 'one', 'two', 'three'];
-        const floatingImage = document.querySelector('.floating-image');
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                if (!sections.includes(targetId)) return;
-                sections.forEach(id => {
-                    document.getElementById(id).style.display = 'none';
-                });
-                document.getElementById(targetId).style.display = 'block';
-                window.scrollTo(0, 0);
-
-                if (targetId === 'intro') {
-                    floatingImage.style.opacity = '1';
-                } else {
-                    floatingImage.style.opacity = '0.33';
-                }
-            });
-        });
-
-        window.addEventListener('load', () => {
-            sections.forEach(id => {
-                document.getElementById(id).style.display = 'none';
-            });
-            document.getElementById('intro').style.display = 'block';
-            floatingImage.style.opacity = '1';
-        });
-
-        // Menu hamburguer (apenas mobile)
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navUl = document.querySelector('#header nav > ul');
-            
-            if (hamburger && window.innerWidth <= 768) {
-                hamburger.addEventListener('click', function() {
-                    this.classList.toggle('open');
-                    navUl.classList.toggle('open');
-                });
-                
-                const navLinks = document.querySelectorAll('#header nav ul li a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        hamburger.classList.remove('open');
-                        navUl.classList.remove('open');
-                    });
-                });
-            }
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
         });
     </script>
 </body>
