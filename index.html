@@ -46,27 +46,27 @@
         }
 
         .whitepaper-wrapper {
-            background-image: url('images/fundo-bolha.png');
-            background-size: 100% 100%;
-            background-position: center;
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            width: 100%;
-            margin: 0 auto 0px auto;
-        }
+    background-image: url('images/fundo-bolha.png');
+    background-size: 100% 100%;
+    background-position: center;
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    width: 100%;
+    margin: 0 auto 0px auto;
+}
 
-        .video-wrapper {
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            width: 100%;
-            margin: 0 auto 0px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+.video-wrapper {
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    width: 100%;
+    margin: 0 auto 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
         .video-embed {
             width: 100%;
@@ -75,7 +75,6 @@
             border: none;
         }
 
-        /* HEADER STYLES - UPDATED FOR VERTICAL CENTERING */
         #header {
             background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
@@ -86,32 +85,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 30px;
+            padding: 10px 30px;
             min-height: 60px;
-            height: 60px;
-            box-sizing: border-box;
-        }
-
-        #header nav {
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        #header nav ul {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            gap: 20px;
-        }
-
-        #header nav li {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            height: 100%;
         }
 
         #header nav a {
@@ -121,9 +96,6 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            height: 100%;
         }
 
         #header nav a:visited,
@@ -144,76 +116,6 @@
             cursor: not-allowed;
         }
 
-        /* MOBILE MENU STYLES */
-        @media (max-width: 768px) {
-            #header {
-                padding: 0 15px;
-            }
-            
-            #header .hamburger {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 30px;
-                height: 21px;
-                position: relative;
-                cursor: pointer;
-                z-index: 1001;
-            }
-            
-            #header .hamburger span {
-                display: block;
-                height: 3px;
-                width: 100%;
-                background: white;
-                border-radius: 3px;
-                transition: all 0.3s ease;
-            }
-            
-            #header .hamburger.open span:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-            }
-            
-            #header .hamburger.open span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            #header .hamburger.open span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
-            }
-            
-            #header nav ul {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transform: translateY(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-                padding-top: 60px;
-                gap: 30px;
-            }
-            
-            #header nav ul.open {
-                transform: translateY(0);
-            }
-            
-            #header nav ul li {
-                height: auto;
-            }
-            
-            #header nav a {
-                height: auto;
-                font-size: 1.2em;
-            }
-        }
-
-        /* REST OF YOUR STYLES */
         #footer {
             background-color: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
@@ -291,6 +193,20 @@
 
             .floating-image {
                 display: none !important;
+            }
+
+            #header nav ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: left;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 0;
+                margin: 0;
+            }
+
+            #header nav ul li {
+                list-style: none;
             }
         }
 
@@ -384,6 +300,7 @@
             color: #fff;
             font-family: sans-serif;
         }
+
     </style>
 </head>
 <body class="is-preload">
@@ -392,11 +309,6 @@
 
     <header id="header">
         <nav>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <ul>
                 <li><a href="#" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
                 <li><a href="#intro" class="menu-link"><strong>TRAILER</strong></a></li>
@@ -507,8 +419,8 @@
             }
             const normalized = Math.abs(angle) / maxAngle;
             const brightness = 1.3 - (0.3 * normalized);
-            logo.style.transform = `rotateY(${angle}deg) rotateX(7deg)`;
-            logo.style.filter = `brightness(${brightness})`;
+           logo.style.transform = rotateY(${angle}deg) rotateX(7deg);
+           logo.style.filter = brightness(${brightness});
             requestAnimationFrame(animateLogo);
         }
         animateLogo();
@@ -538,60 +450,40 @@
     </script>
 
     <script>
-        // Menu navigation functionality
-        const menuLinks = document.querySelectorAll('a.menu-link');
-        const sections = ['intro', 'one', 'two', 'three'];
-        const floatingImage = document.querySelector('.floating-image');
+    const menuLinks = document.querySelectorAll('a.menu-link');
+    const sections = ['intro', 'one', 'two', 'three'];
+    const floatingImage = document.querySelector('.floating-image');
 
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                if (!sections.includes(targetId)) return;
-                sections.forEach(id => {
-                    document.getElementById(id).style.display = 'none';
-                });
-                document.getElementById(targetId).style.display = 'block';
-                window.scrollTo(0, 0);
-
-                if (targetId === 'intro') {
-                    floatingImage.style.opacity = '1';
-                } else {
-                    floatingImage.style.opacity = '0.33';
-                }
-            });
-        });
-
-        window.addEventListener('load', () => {
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            if (!sections.includes(targetId)) return;
             sections.forEach(id => {
                 document.getElementById(id).style.display = 'none';
             });
-            document.getElementById('intro').style.display = 'block';
-            floatingImage.style.opacity = '1';
-        });
+            document.getElementById(targetId).style.display = 'block';
+            window.scrollTo(0, 0);
 
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navUl = document.querySelector('#header nav ul');
-            
-            if (hamburger) {
-                hamburger.addEventListener('click', function() {
-                    this.classList.toggle('open');
-                    navUl.classList.toggle('open');
-                });
-                
-                const navLinks = document.querySelectorAll('#header nav ul li a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        if (window.innerWidth <= 768) {
-                            hamburger.classList.remove('open');
-                            navUl.classList.remove('open');
-                        }
-                    });
-                });
+            // Ajusta a opacidade da imagem joebg.png
+            if (targetId === 'intro') {
+                floatingImage.style.opacity = '1';  // 100%
+            } else {
+                floatingImage.style.opacity = '0.33';  // 33%
             }
         });
-    </script>
+    });
+
+    window.addEventListener('load', () => {
+        sections.forEach(id => {
+            document.getElementById(id).style.display = 'none';
+        });
+        document.getElementById('intro').style.display = 'block';
+
+        // Define opacidade inicial para o intro (trailer)
+        floatingImage.style.opacity = '1';
+    });
+</script>
+
 </body>
 </html>
