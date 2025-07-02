@@ -108,6 +108,18 @@
             color: #abb9d0 !important;
         }
 
+        #header nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+        #header nav ul li {
+    list-style: none;
+}
+
         a.disabled {
             pointer-events: none;
             color: #999 !important;
@@ -310,6 +322,7 @@
     <header id="header">
         <nav>
             <ul>
+                <li><a href="#" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
                 <li><a href="#intro" class="menu-link"><strong>TRAILER</strong></a></li>
                 <li><a href="#one" class="menu-link"><strong>WHITEPAPER</strong></a></li>
                 <li><a href="#two" class="menu-link"><strong>STAFF</strong></a></li>
@@ -418,8 +431,8 @@
             }
             const normalized = Math.abs(angle) / maxAngle;
             const brightness = 1.3 - (0.3 * normalized);
-           logo.style.transform = `rotateY(${angle}deg) rotateX(7deg)`;
-           logo.style.filter = `brightness(${brightness})`;
+           logo.style.transform = rotateY(${angle}deg) rotateX(7deg);
+           logo.style.filter = brightness(${brightness});
             requestAnimationFrame(animateLogo);
         }
         animateLogo();
