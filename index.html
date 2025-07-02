@@ -213,6 +213,45 @@
             }
         }
 
+        /* STAFF GALLERY STYLES - UPDATED FOR MOBILE */
+        .staff-gallery {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .staff-gallery img {
+            width: calc(33.333% - 20px);
+            max-width: 300px;
+            min-width: 150px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .staff-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .staff-gallery {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .staff-gallery img {
+                width: 80%;
+                max-width: 250px;
+            }
+        }
+
         /* REST OF YOUR STYLES */
         #footer {
             background-color: rgba(0, 0, 0, 0.3);
@@ -339,21 +378,6 @@
             justify-content: center;
         }
 
-        .staff-gallery {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-        }
-
-        .staff-gallery img {
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-        }
-
         .staff-layout {
             display: flex;
             width: 100%;
@@ -459,15 +483,14 @@
                         <strong>Contribuições:</strong> Criação e Estruturação do projeto</p>
                     </div>
                 </div>
-                </div>
-                <h2>Apoio</h2>
+            </div>
+            <h2>Apoio</h2>
             <br>
-                <div class="staff-gallery">
-                    <img src="images/nowska.png" alt="Staff 1">
-                    <img src="images/novoolimpo.png" alt="Staff 2">
-                    <img src="images/infamios.png" alt="Staff 3">
-                </div>
-            
+            <div class="staff-gallery">
+                <img src="images/nowska.png" alt="Staff 1">
+                <img src="images/novoolimpo.png" alt="Staff 2">
+                <img src="images/infamios.png" alt="Staff 3">
+            </div>
         </div>
     </section>
 
