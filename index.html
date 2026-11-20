@@ -420,6 +420,52 @@
         margin-top: 0px; /* Ajuste este valor conforme necessário */
     }
 }
+            /* BOTAO JOGAR */
+        .play-btn {
+            display: inline-block;
+            margin: 28px 0 10px 0;
+            padding: 16px 64px;
+            font-family: 'Bitcount Grid Double', sans-serif;
+            font-weight: 800;
+            font-size: 2em;
+            letter-spacing: 0.1em;
+            color: #fff !important;
+            text-decoration: none;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+            border: 0 !important;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #81A6BB, #A27ADA);
+            box-shadow: 0 0 25px rgba(162, 122, 218, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: playPulse 2s ease-in-out infinite;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 40px rgba(162, 122, 218, 0.9);
+        }
+
+        @keyframes playPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(162, 122, 218, 0.5); }
+            50% { box-shadow: 0 0 38px rgba(162, 122, 218, 0.95); }
+        }
+
+        #header nav a.nav-play {
+            height: auto;
+            padding: 6px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #81A6BB, #A27ADA);
+            border: 0;
+        }
+
+        #header nav a.nav-play:hover {
+            color: #fff !important;
+            filter: brightness(1.15);
+        }
+
+        @media (max-width: 768px) {
+            .play-btn { font-size: 1.6em; padding: 14px 48px; }
+        }
     </style>
 </head>
 <body class="is-preload">
@@ -434,6 +480,7 @@
                 <span></span>
             </div>
             <ul>
+                <li><a href="https://badboyzleague.github.io/badboyzgame/" class="nav-play"><strong>JOGAR</strong></a></li>
                 <li><a href="#" class="disabled"><strong>DOWNLOAD DEMO</strong></a></li>
                 <li><a href="#intro" class="menu-link"><strong>TRAILER</strong></a></li>
                 <li><a href="#one" class="menu-link"><strong>WHITEPAPER</strong></a></li>
@@ -453,6 +500,8 @@
                     <iframe class="video-embed" src="https://www.youtube.com/embed/XnUUU3JWu-E?si=d52xNkwu9eZ4Feph" title="YouTube video player" allowfullscreen></iframe>
                 </div>
             </header>
+
+            <a href="https://badboyzleague.github.io/badboyzgame/" class="play-btn">JOGAR</a>
 
             <p>ACOMPANHE NOSSAS REDES</p>
             <ul class="icons">
